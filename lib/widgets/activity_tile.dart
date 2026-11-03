@@ -16,22 +16,14 @@ class ActivityTile extends StatelessWidget {
   final VoidCallback onToggle;
   final VoidCallback onFavorito;
 
-  static const _tachado = TextStyle(
-    decoration: TextDecoration.lineThrough,
-  );
+  static const _tachado = TextStyle(decoration: TextDecoration.lineThrough);
 
   @override
   Widget build(BuildContext context) {
     final a = actividad;
     return ListTile(
-      leading: Checkbox(
-        value: a.completada,
-        onChanged: (_) => onToggle(),
-      ),
-      title: Text(
-        a.titulo,
-        style: a.completada ? _tachado : null,
-      ),
+      leading: Checkbox(value: a.completada, onChanged: (_) => onToggle()),
+      title: Text(a.titulo, style: a.completada ? _tachado : null),
       subtitle: Text(a.categoria.etiqueta),
       trailing: IconButton(
         icon: Icon(favorita ? Icons.star : Icons.star_border),
